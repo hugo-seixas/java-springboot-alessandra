@@ -41,6 +41,14 @@ public class Livro extends ObraFisica {
 	public String getIsbn() {
 		return isbn;
 	}
+
+	@Override
+	public String toString() {
+		return "Livro [id=" + id + ", titulo=" + titulo + ", dataPublicacao=" + dataPublicacao + ", codLocalizacao="
+				+ codLocalizacao + ", autor=" + autor + ", isbn=" + isbn + "]";
+	}
+	
+	
 	
 	
 }
