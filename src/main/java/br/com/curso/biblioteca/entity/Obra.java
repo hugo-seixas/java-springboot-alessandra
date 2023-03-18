@@ -10,6 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 
 @Entity
@@ -25,6 +27,7 @@ public abstract class Obra {
 	protected String titulo;
 	
 	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	protected Date dataPublicacao;
 	
 	public Obra() {

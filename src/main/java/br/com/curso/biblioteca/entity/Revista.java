@@ -12,13 +12,7 @@ import jakarta.persistence.Table;
 @PrimaryKeyJoinColumn(name = "idObra")
 public class Revista extends ObraFisica {
 	
-	@Override
 	@Column(nullable = false)
-	public String getCodLocalizacao() {
-		return super.getCodLocalizacao();
-	}
-	
-	@Column(nullable = true)
 	private Integer numero;
 
 	public Revista() {
