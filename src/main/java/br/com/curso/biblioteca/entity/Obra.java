@@ -1,6 +1,9 @@
 package br.com.curso.biblioteca.entity;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,23 +16,22 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
-
 @Entity
 @Table(name = "TB_EXEMPLAR_OBRA")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Obra {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
-	
+
 	@Column(nullable = false)
 	protected String titulo;
-	
+
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	protected Date dataPublicacao;
-	
+
 	public Obra() {
 	}
 
@@ -50,6 +52,10 @@ public abstract class Obra {
 	public Date getDataPublicacao() {
 		return dataPublicacao;
 	}
-	
-	
+
+	@JsonInclude
+	public String getDatapublicacaoFormatada() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		return sdf.format(dataPublicacao);
+	}
 }

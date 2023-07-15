@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Bean;
 
 import br.com.curso.biblioteca.entity.Livro;
 import br.com.curso.biblioteca.repository.LivroRepository;
+import br.com.curso.biblioteca.service.EmprestimoService;
 
 @SpringBootApplication
 public class BibliotecaApplication {
@@ -24,8 +25,8 @@ public class BibliotecaApplication {
 		SpringApplication.run(BibliotecaApplication.class, args);
 	}
 	
-	@Bean
-	public CommandLineRunner executar (LivroRepository livroRepository) {
+/*	@Bean
+	public CommandLineRunner executar (LivroRepository livroRepository, EmprestimoService emprestimoService) {
 		return (args) -> {
 			
 //			Apagando todos os livros
@@ -86,8 +87,10 @@ public class BibliotecaApplication {
 				log.info("Livro removido com sucesso");
 			}
 			
+			// instanciar estudante e persistir no banco, chamando emprestimo service
+			
 			
 		};
-	}
+	}*/
 
 }

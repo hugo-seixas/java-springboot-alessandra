@@ -3,6 +3,8 @@ package br.com.curso.biblioteca.repository;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -13,6 +15,9 @@ import br.com.curso.biblioteca.entity.Livro;
 
 public interface LivroRepository extends JpaRepository<Livro, Long> {
 
+	Page<Livro> findAll (Pageable pagina);
+	Page<Livro> findbyTituloContaining(String titulo, Pageable pagina);
+	
 	public Livro findByIsbn(String isbn);
 	public List<Livro> findByCodLocalizacao(String getCodLocalizacao);
 	public List<Livro> findByDataPublicacao(Date dataPublicacao);
@@ -53,5 +58,6 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
 	@Modifying
 	@Query("DELETE FROM Livro WHERE id = :id")
 	public void apagaLivro(@Param("id") Long idLivro);
+
 
 }

@@ -38,6 +38,8 @@ public abstract class Usuario {
 
 	@OneToMany(mappedBy = "usuario")
 	protected List<Emprestimo> emprestimos;
+	
+	protected Integer totalEmprestimos;
 
 	public Usuario() {
 	}
@@ -64,5 +66,15 @@ public abstract class Usuario {
 	public String getEmail() {
 		return email;
 	}
+	
+	public Integer getTotalEmprestimos() {
+		return totalEmprestimos;
+	}
+	
+	public void setTotalEmprestimos(Integer totalEmprestimos) {
+		this.totalEmprestimos = totalEmprestimos;
+	}
+	
+	public abstract int getLimiteEmprestimos ();
 
 }

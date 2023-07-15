@@ -24,7 +24,11 @@ public class Professor extends Usuario {
 	public String getTitulacao() {
 		return titulacao;
 	}
-	
+
+	@Override
+	public int getLimiteEmprestimos() {
+		return 10;
+	}
 	
 
 }

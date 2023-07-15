@@ -26,6 +26,11 @@ public class Estudante extends Usuario {
 		return matricula;
 	}
 	
+	@Override
+	public int getLimiteEmprestimos() {
+		return 5;
+	}
+	
 	
 	
 	
